@@ -1,0 +1,58 @@
+{
+    "id": "2b966c69",
+    "name": "Lyra Silvertongue",
+    "input_details": {
+        "age": 28,
+        "gender": "Female",
+        "ethnicity": "Nordic-inspired",
+        "facial_characteristics": "Sharp, intelligent sapphire-blue eyes, a light dusting of freckles across a straight nose, high cheekbones, and a determined chin. Her silver hair is often braided intricately.",
+        "body_type": "Slender yet athletic, agile build",
+        "other_details": "Always wears a moonstone pendant. Has a faint, silvery scar above her left eyebrow. Moves with a quiet grace, observant and thoughtful.",
+        "user_edits_provided": null
+    },
+    "full_description": "Lyra Silvertongue possesses an air of quiet intensity, her slender yet athletic frame moving with an agile grace that speaks of readiness. Her Nordic heritage is etched into the high cheekbones and the determined line of her chin, features that stand out against the intricate braids of her striking silver hair. Sharp, intelligent sapphire-blue eyes are her most compelling trait, constantly observing, their depths hinting at a keen mind. A light dusting of freckles across her straight nose offers a subtle counterpoint to her otherwise resolute expression.\n\nA faint, silvery scar arcs just above her left eyebrow, a silent testament to a past not easily forgotten, yet it does nothing to detract from her focused gaze. Always present is a moonstone pendant, nestled at her throat, its ethereal glow seeming to mirror the thoughtful, observant nature that defines her. Lyra carries herself with a quiet confidence, a woman who listens more than she speaks, her every subtle movement and keen glance suggesting a depth of experience and a sharp intellect carefully held in reserve. She now also carries an ornate, ancient dagger at her hip.",
+    "created_at": "2025-06-09T20:25:02.216104",
+    "images": [],
+    "scenes": [],
+    "generated_prompt_sets": [
+        {
+            "id": "ee506443",
+            "type": "individually_specified_scenes",
+            "timestamp": "2025-06-09T20:25:13.230089",
+            "variations": [
+                {
+                    "variation_index": 0,
+                    "user_inputs": {
+                        "background": "a mystical forest at twilight",
+                        "clothing": "dark leather armor with silver trim",
+                        "pose": "kneeling by a glowing rune stone",
+                        "view": "medium shot"
+                    },
+                    "context_prompt": "A mystical forest at twilight forms the backdrop. A figure, clad in dark leather armor with silver trim, kneels by a glowing rune stone. The scene is captured in a medium shot.",
+                    "final_prompt_original": "Lyra Silvertongue possesses an air of quiet intensity, her slender yet athletic frame moving with an agile grace that speaks of readiness. Her Nordic heritage is etched into the high cheekbones and the determined line of her chin, features that stand out against the intricate braids of her striking silver hair. Sharp, intelligent sapphire-blue eyes are her most compelling trait, constantly observing, their depths hinting at a keen mind. A light dusting of freckles across her straight nose offers a subtle counterpoint to her otherwise resolute expression.\n\nA faint, silvery scar arcs just above her left eyebrow, a silent testament to a past not easily forgotten, yet it does nothing to detract from her focused gaze. Always present is a moonstone pendant, nestled at her throat, its ethereal glow seeming to mirror the thoughtful, observant nature that defines her. Lyra carries herself with a quiet confidence, a woman who listens more than she speaks, her every subtle movement and keen glance suggesting a depth of experience and a sharp intellect carefully held in reserve. A mystical forest at twilight forms the backdrop. A figure, clad in dark leather armor with silver trim, kneels by a glowing rune stone. The scene is captured in a medium shot.",
+                    "final_prompt_current": "Lyra Silvertongue possesses an air of quiet intensity, her slender yet athletic frame moving with an agile grace that speaks of readiness. Her Nordic heritage is etched into the high cheekbones and the determined line of her chin, features that stand out against the intricate braids of her striking silver hair. Sharp, intelligent sapphire-blue eyes are her most compelling trait, constantly observing, their depths hinting at a keen mind. A light dusting of freckles across her straight nose offers a subtle counterpoint to her otherwise resolute expression.\n\nA faint, silvery scar arcs just above her left eyebrow, a silent testament to a past not easily forgotten, yet it does nothing to detract from her focused gaze. Always present is a moonstone pendant, nestled at her throat, its ethereal glow seeming to mirror the thoughtful, observant nature that defines her. Lyra carries herself with a quiet confidence, a woman who listens more than she speaks, her every subtle movement and keen glance suggesting a depth of experience and a sharp intellect carefully held in reserve. A mystical forest at twilight forms the backdrop. A figure, clad in dark leather armor with silver trim, kneels by a glowing rune stone. The scene is captured in a medium shot."
+                },
+                {
+                    "variation_index": 1,
+                    "user_inputs": {
+                        "background": "a bustling fantasy marketplace",
+                        "clothing": "simple traveler's clothes, hooded cloak",
+                        "pose": "observing a merchant's stall",
+                        "view": "over the shoulder shot"
+                    },
+                    "context_prompt": "An over the shoulder shot reveals a figure in simple traveler's clothes and a hooded cloak observing a merchant's stall within a bustling fantasy marketplace.",
+                    "final_prompt_original": "Lyra Silvertongue possesses an air of quiet intensity, her slender yet athletic frame moving with an agile grace that speaks of readiness. Her Nordic heritage is etched into the high cheekbones and the determined line of her chin, features that stand out against the intricate braids of her striking silver hair. Sharp, intelligent sapphire-blue eyes are her most compelling trait, constantly observing, their depths hinting at a keen mind. A light dusting of freckles across her straight nose offers a subtle counterpoint to her otherwise resolute expression.\n\nA faint, silvery scar arcs just above her left eyebrow, a silent testament to a past not easily forgotten, yet it does nothing to detract from her focused gaze. Always present is a moonstone pendant, nestled at her throat, its ethereal glow seeming to mirror the thoughtful, observant nature that defines her. Lyra carries herself with a quiet confidence, a woman who listens more than she speaks, her every subtle movement and keen glance suggesting a depth of experience and a sharp intellect carefully held in reserve. An over the shoulder shot reveals a figure in simple traveler's clothes and a hooded cloak observing a merchant's stall within a bustling fantasy marketplace.",
+                    "final_prompt_current": "Lyra Silvertongue possesses an air of quiet intensity, her slender yet athletic frame moving with an agile grace that speaks of readiness. Her Nordic heritage is etched into the high cheekbones and the determined line of her chin, features that stand out against the intricate braids of her striking silver hair. Sharp, intelligent sapphire-blue eyes are her most compelling trait, constantly observing, their depths hinting at a keen mind. A light dusting of freckles across her straight nose offers a subtle counterpoint to her otherwise resolute expression.\n\nA faint, silvery scar arcs just above her left eyebrow, a silent testament to a past not easily forgotten, yet it does nothing to detract from her focused gaze. Always present is a moonstone pendant, nestled at her throat, its ethereal glow seeming to mirror the thoughtful, observant nature that defines her. Lyra carries herself with a quiet confidence, a woman who listens more than she speaks, her every subtle movement and keen glance suggesting a depth of experience and a sharp intellect carefully held in reserve. An over the shoulder shot reveals a figure in simple traveler's clothes and a hooded cloak observing a merchant's stall within a bustling fantasy marketplace."
+                }
+            ]
+        }
+    ],
+    "updated_at": "2025-06-09T20:25:13.233678",
+    "description_history": [
+        {
+            "timestamp": "2025-06-09T20:25:13.233678",
+            "description": "Lyra Silvertongue possesses an air of quiet intensity, her slender yet athletic frame moving with an agile grace that speaks of readiness. Her Nordic heritage is etched into the high cheekbones and the determined line of her chin, features that stand out against the intricate braids of her striking silver hair. Sharp, intelligent sapphire-blue eyes are her most compelling trait, constantly observing, their depths hinting at a keen mind. A light dusting of freckles across her straight nose offers a subtle counterpoint to her otherwise resolute expression.\n\nA faint, silvery scar arcs just above her left eyebrow, a silent testament to a past not easily forgotten, yet it does nothing to detract from her focused gaze. Always present is a moonstone pendant, nestled at her throat, its ethereal glow seeming to mirror the thoughtful, observant nature that defines her. Lyra carries herself with a quiet confidence, a woman who listens more than she speaks, her every subtle movement and keen glance suggesting a depth of experience and a sharp intellect carefully held in reserve. She now also carries an ornate, ancient dagger at her hip.",
+            "source": "manual_update"
+        }
+    ]
+}

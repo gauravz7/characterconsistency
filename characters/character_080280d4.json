@@ -1,0 +1,18 @@
+{
+    "id": "080280d4",
+    "name": "eva",
+    "input_details": {
+        "age": 20,
+        "gender": "Female",
+        "ethnicity": "Desi",
+        "facial_characteristics": "Sharp green eyes, fair skin, beautiful",
+        "body_type": "curvy ",
+        "other_details": "hot",
+        "user_edits_provided": null
+    },
+    "full_description": "Eva, at twenty, was a confluence of captivating contrasts. Her Desi heritage gifted her an inherent grace, yet it was her luminous, fair skin that first drew the eye, creating a striking canvas for her most arresting feature: sharp, intelligent green eyes. Like fragments of polished jade, they held an unnerving perceptiveness, hinting at a keen mind constantly observing, perhaps even assessing, the world around her. These weren't just beautiful eyes; they were windows to a vibrant, assessing intellect.\n\nHer curvy figure moved with an effortless confidence, a sinuous grace that spoke of self-possession and an undeniable, almost palpable magnetism. This inherent allure, an almost tangible heat in her presence, wasn't a cultivated act but an effortless radiation of warmth and self-assurance. It stemmed from the way she carried herself, a silent declaration of her presence that turned heads without demanding attention. One could imagine a fiery spirit simmering just beneath that composed exterior, a personality as vivid and compelling as her striking appearance, promising both depth and a spark of untamed energy.",
+    "created_at": "2025-06-09T22:11:31.023563",
+    "images": [],
+    "scenes": [],
+    "generated_prompt_sets": []
+}

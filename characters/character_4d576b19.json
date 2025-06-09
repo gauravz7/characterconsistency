@@ -1,0 +1,59 @@
+{
+    "id": "4d576b19",
+    "name": "Lyra Silvertongue",
+    "input_details": {
+        "age": 28,
+        "gender": "Female",
+        "ethnicity": "Nordic-inspired",
+        "facial_characteristics": "Sharp, intelligent sapphire-blue eyes, a light dusting of freckles across a straight nose, high cheekbones, and a determined chin. Her silver hair is often braided intricately.",
+        "body_type": "Slender yet athletic, agile build",
+        "other_details": "Always wears a moonstone pendant. Has a faint, silvery scar above her left eyebrow. Moves with a quiet grace, observant and thoughtful.",
+        "user_edits_provided": null
+    },
+    "full_description": "Lyra Silvertongue carries an air of quiet intensity, her presence as crisp and clear as a Nordic winter morning. Her sharp, intelligent sapphire-blue eyes, capable of both piercing scrutiny and profound empathy, are the focal point of a face framed by intricately braided silver hair. These elaborate plaits speak of patience and a meticulous nature, contrasting with the light, almost youthful dusting of freckles scattered across her straight nose and high cheekbones. A determined chin hints at an unyielding will, a resolve perhaps tested, as suggested by the faint, silvery scar that arcs delicately above her left eyebrow \u2013 a subtle mark of a past encounter.\n\nHer slender yet athletic build allows her to move with a quiet grace, an agile fluidity that makes her seem almost ethereal at times, yet always grounded. She is observant and thoughtful, her gaze often lingering, absorbing details with a silent acuity. Around her neck, always present, rests a moonstone pendant. The cool, milky glow of the stone seems to echo the silver of her hair and the scar, a constant, personal emblem against the practical fabrics she likely favors. Lyra's demeanor is one of watchful stillness, a woman who listens more than she speaks, her every subtle movement hinting at a life lived with awareness and resilience. She now also carries an ornate, ancient dagger at her hip.",
+    "created_at": "2025-06-09T20:21:16.514959",
+    "images": [],
+    "scenes": [],
+    "generated_prompt_sets": [
+        {
+            "id": "a630c865",
+            "type": "individually_specified_scenes",
+            "timestamp": "2025-06-09T20:21:39.282960",
+            "variations": [
+                {
+                    "variation_index": 0,
+                    "user_inputs": {
+                        "background": "a mystical forest at twilight",
+                        "clothing": "dark leather armor with silver trim",
+                        "pose": "kneeling by a glowing rune stone",
+                        "view": "medium shot"
+                    },
+                    "context_prompt": "[CONTEXT_GENERATION_ERROR: Failed to generate single context prompt: Gemini API returned None for context. Details: Candidate 1: FinishReason: FinishReason.MAX_TOKENS No text content in candidate parts.]",
+                    "final_prompt_original": "Lyra Silvertongue carries an air of quiet intensity, her presence as crisp and clear as a Nordic winter morning. Her sharp, intelligent sapphire-blue eyes, capable of both piercing scrutiny and profound empathy, are the focal point of a face framed by intricately braided silver hair. These elaborate plaits speak of patience and a meticulous nature, contrasting with the light, almost youthful dusting of freckles scattered across her straight nose and high cheekbones. A determined chin hints at an unyielding will, a resolve perhaps tested, as suggested by the faint, silvery scar that arcs delicately above her left eyebrow \u2013 a subtle mark of a past encounter.\n\nHer slender yet athletic build allows her to move with a quiet grace, an agile fluidity that makes her seem almost ethereal at times, yet always grounded. She is observant and thoughtful, her gaze often lingering, absorbing details with a silent acuity. Around her neck, always present, rests a moonstone pendant. The cool, milky glow of the stone seems to echo the silver of her hair and the scar, a constant, personal emblem against the practical fabrics she likely favors. Lyra's demeanor is one of watchful stillness, a woman who listens more than she speaks, her every subtle movement hinting at a life lived with awareness and resilience. [CONTEXT_GENERATION_ERROR: Failed to generate single context prompt: Gemini API returned None for context. Details: Candidate 1: FinishReason: FinishReason.MAX_TOKENS No text content in candidate parts.]",
+                    "final_prompt_current": "Lyra Silvertongue carries an air of quiet intensity, her presence as crisp and clear as a Nordic winter morning. Her sharp, intelligent sapphire-blue eyes, capable of both piercing scrutiny and profound empathy, are the focal point of a face framed by intricately braided silver hair. These elaborate plaits speak of patience and a meticulous nature, contrasting with the light, almost youthful dusting of freckles scattered across her straight nose and high cheekbones. A determined chin hints at an unyielding will, a resolve perhaps tested, as suggested by the faint, silvery scar that arcs delicately above her left eyebrow \u2013 a subtle mark of a past encounter.\n\nHer slender yet athletic build allows her to move with a quiet grace, an agile fluidity that makes her seem almost ethereal at times, yet always grounded. She is observant and thoughtful, her gaze often lingering, absorbing details with a silent acuity. Around her neck, always present, rests a moonstone pendant. The cool, milky glow of the stone seems to echo the silver of her hair and the scar, a constant, personal emblem against the practical fabrics she likely favors. Lyra's demeanor is one of watchful stillness, a woman who listens more than she speaks, her every subtle movement hinting at a life lived with awareness and resilience. [CONTEXT_GENERATION_ERROR: Failed to generate single context prompt: Gemini API returned None for context. Details: Candidate 1: FinishReason: FinishReason.MAX_TOKENS No text content in candidate parts.]",
+                    "error_details": "Failed to generate single context prompt: Gemini API returned None for context. Details: Candidate 1: FinishReason: FinishReason.MAX_TOKENS No text content in candidate parts."
+                },
+                {
+                    "variation_index": 1,
+                    "user_inputs": {
+                        "background": "a bustling fantasy marketplace",
+                        "clothing": "simple traveler's clothes, hooded cloak",
+                        "pose": "observing a merchant's stall",
+                        "view": "over the shoulder shot"
+                    },
+                    "context_prompt": "In a bustling fantasy marketplace, a figure in simple traveler's clothes and a hooded cloak observes a merchant's stall. The scene is captured from an over the shoulder shot.",
+                    "final_prompt_original": "Lyra Silvertongue carries an air of quiet intensity, her presence as crisp and clear as a Nordic winter morning. Her sharp, intelligent sapphire-blue eyes, capable of both piercing scrutiny and profound empathy, are the focal point of a face framed by intricately braided silver hair. These elaborate plaits speak of patience and a meticulous nature, contrasting with the light, almost youthful dusting of freckles scattered across her straight nose and high cheekbones. A determined chin hints at an unyielding will, a resolve perhaps tested, as suggested by the faint, silvery scar that arcs delicately above her left eyebrow \u2013 a subtle mark of a past encounter.\n\nHer slender yet athletic build allows her to move with a quiet grace, an agile fluidity that makes her seem almost ethereal at times, yet always grounded. She is observant and thoughtful, her gaze often lingering, absorbing details with a silent acuity. Around her neck, always present, rests a moonstone pendant. The cool, milky glow of the stone seems to echo the silver of her hair and the scar, a constant, personal emblem against the practical fabrics she likely favors. Lyra's demeanor is one of watchful stillness, a woman who listens more than she speaks, her every subtle movement hinting at a life lived with awareness and resilience. In a bustling fantasy marketplace, a figure in simple traveler's clothes and a hooded cloak observes a merchant's stall. The scene is captured from an over the shoulder shot.",
+                    "final_prompt_current": "Lyra Silvertongue carries an air of quiet intensity, her presence as crisp and clear as a Nordic winter morning. Her sharp, intelligent sapphire-blue eyes, capable of both piercing scrutiny and profound empathy, are the focal point of a face framed by intricately braided silver hair. These elaborate plaits speak of patience and a meticulous nature, contrasting with the light, almost youthful dusting of freckles scattered across her straight nose and high cheekbones. A determined chin hints at an unyielding will, a resolve perhaps tested, as suggested by the faint, silvery scar that arcs delicately above her left eyebrow \u2013 a subtle mark of a past encounter.\n\nHer slender yet athletic build allows her to move with a quiet grace, an agile fluidity that makes her seem almost ethereal at times, yet always grounded. She is observant and thoughtful, her gaze often lingering, absorbing details with a silent acuity. Around her neck, always present, rests a moonstone pendant. The cool, milky glow of the stone seems to echo the silver of her hair and the scar, a constant, personal emblem against the practical fabrics she likely favors. Lyra's demeanor is one of watchful stillness, a woman who listens more than she speaks, her every subtle movement hinting at a life lived with awareness and resilience. In a bustling fantasy marketplace, a figure in simple traveler's clothes and a hooded cloak observes a merchant's stall. The scene is captured from an over the shoulder shot."
+                }
+            ]
+        }
+    ],
+    "updated_at": "2025-06-09T20:21:39.287045",
+    "description_history": [
+        {
+            "timestamp": "2025-06-09T20:21:39.287045",
+            "description": "Lyra Silvertongue carries an air of quiet intensity, her presence as crisp and clear as a Nordic winter morning. Her sharp, intelligent sapphire-blue eyes, capable of both piercing scrutiny and profound empathy, are the focal point of a face framed by intricately braided silver hair. These elaborate plaits speak of patience and a meticulous nature, contrasting with the light, almost youthful dusting of freckles scattered across her straight nose and high cheekbones. A determined chin hints at an unyielding will, a resolve perhaps tested, as suggested by the faint, silvery scar that arcs delicately above her left eyebrow \u2013 a subtle mark of a past encounter.\n\nHer slender yet athletic build allows her to move with a quiet grace, an agile fluidity that makes her seem almost ethereal at times, yet always grounded. She is observant and thoughtful, her gaze often lingering, absorbing details with a silent acuity. Around her neck, always present, rests a moonstone pendant. The cool, milky glow of the stone seems to echo the silver of her hair and the scar, a constant, personal emblem against the practical fabrics she likely favors. Lyra's demeanor is one of watchful stillness, a woman who listens more than she speaks, her every subtle movement hinting at a life lived with awareness and resilience. She now also carries an ornate, ancient dagger at her hip.",
+            "source": "manual_update"
+        }
+    ]
+}

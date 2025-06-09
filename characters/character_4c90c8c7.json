@@ -1,0 +1,18 @@
+{
+    "id": "4c90c8c7",
+    "name": "Sara",
+    "input_details": {
+        "age": 27,
+        "gender": "Female",
+        "ethnicity": "Indian",
+        "facial_characteristics": "Sharp cheekbones, small hair till the shoulders",
+        "body_type": "Slender",
+        "other_details": "Wears a heart shaped ear rings",
+        "user_edits_provided": null
+    },
+    "full_description": "Sara, at twenty-seven, carried an air of quiet intensity, her presence defined by a refined elegance. Her Indian heritage lent a warm, luminous quality to her complexion, which was strikingly offset by the sharp, high cheekbones that sculpted her features with an almost aristocratic grace. Her dark hair, trimmed to a practical yet stylish shoulder length, often fell in a sleek curtain, framing a face that seemed to hold a thoughtful, observant gaze.\n\nHer slender build contributed to an impression of agile composure, moving with a subtle, unhurried rhythm. A distinctive, and perhaps revealing, detail was her consistent choice of heart-shaped earrings. These small, gleaming adornments, often catching the light with a turn of her head, offered a glimpse of a softer, more sentimental facet to her personality, a charming counterpoint to the keenness of her facial structure. They suggested a quiet romanticism or a cherished personal emblem, hinting at a depth of feeling beneath her composed exterior. This blend of sharp definition and gentle detail painted a picture of a woman who was both discerning and possessed of a quiet, heartfelt warmth.",
+    "created_at": "2025-06-09T20:29:31.506163",
+    "images": [],
+    "scenes": [],
+    "generated_prompt_sets": []
+}

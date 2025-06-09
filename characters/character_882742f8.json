@@ -1,0 +1,78 @@
+{
+    "id": "882742f8",
+    "name": "amaya",
+    "input_details": {
+        "age": 20,
+        "gender": "Female",
+        "ethnicity": "Desi",
+        "facial_characteristics": "Sharp green eyes, fair skin, beautiful",
+        "body_type": "curvy ",
+        "other_details": "hot",
+        "user_edits_provided": "black straight long hair "
+    },
+    "full_description": "Amaya, at twenty, possessed a beauty that was both striking and undeniably captivating. A cascade of straight, jet-black hair, long and silken, framed a face of exquisite fairness, a canvas for features that commanded attention. Her eyes were her most arresting attribute: sharp, intelligent, and a startling, luminous green that seemed to hold an inner fire, a stark and beautiful contrast against her Desi heritage. This combination of fair skin and piercing green eyes lent her an almost ethereal quality, setting her apart.\n\nShe moved with an inherent grace that accentuated her curvy silhouette, each line and contour speaking of a confident, vibrant femininity. There was an alluring energy about her, a palpable warmth that radiated from her fair skin and the subtle, knowing curve of her lips. Her presence was magnetic, turning heads not just for her evident beauty, but for the confident aura that suggested a spirit as compelling as her appearance. At twenty, Amaya carried herself with a poise that hinted at a keen awareness of her own allure, her sharp green eyes missing little, reflecting both intelligence and a spark of youthful vivacity.",
+    "created_at": "2025-06-09T22:17:54.690676",
+    "images": [],
+    "scenes": [],
+    "generated_prompt_sets": [
+        {
+            "id": "70f8bd13",
+            "type": "individually_specified_scenes",
+            "timestamp": "2025-06-09T23:34:31.846231",
+            "variations": [
+                {
+                    "variation_index": 0,
+                    "user_inputs": {
+                        "background": "beach",
+                        "clothing": "swim wear",
+                        "pose": "running",
+                        "view": "closeup"
+                    },
+                    "context_prompt": "[CONTEXT_GENERATION_ERROR: Failed to generate single context prompt: Gemini API returned None for context. Details: Candidate 1: FinishReason: FinishReason.MAX_TOKENS No text content in candidate parts.]",
+                    "final_prompt_original": "Amaya, at twenty, possessed a beauty that was both striking and undeniably captivating. A cascade of straight, jet-black hair, long and silken, framed a face of exquisite fairness, a canvas for features that commanded attention. Her eyes were her most arresting attribute: sharp, intelligent, and a startling, luminous green that seemed to hold an inner fire, a stark and beautiful contrast against her Desi heritage. This combination of fair skin and piercing green eyes lent her an almost ethereal quality, setting her apart.  She moved with an inherent grace that accentuated her curvy silhouette, each line and contour speaking of a confident, vibrant femininity. There was an alluring energy about her, a palpable warmth that radiated from her fair skin and the subtle, knowing curve of her lips. Her presence was magnetic, turning heads not just for her evident beauty, but for the confident aura that suggested a spirit as compelling as her appearance. At twenty, Amaya carried herself with a poise that hinted at a keen awareness of her own allure, her sharp green eyes missing little, reflecting both intelligence and a spark of youthful vivacity. [CONTEXT_GENERATION_ERROR: Failed to generate single context prompt: Gemini API returned None for context. Details: Candidate 1: FinishReason: FinishReason.MAX_TOKENS No text content in candidate parts.]",
+                    "final_prompt_current": "Amaya, at twenty, possessed a beauty that was both striking and undeniably captivating. A cascade of straight, jet-black hair, long and silken, framed a face of exquisite fairness, a canvas for features that commanded attention. Her eyes were her most arresting attribute: sharp, intelligent, and a startling, luminous green that seemed to hold an inner fire, a stark and beautiful contrast against her Desi heritage. This combination of fair skin and piercing green eyes lent her an almost ethereal quality, setting her apart.  She moved with an inherent grace that accentuated her curvy silhouette, each line and contour speaking of a confident, vibrant femininity. There was an alluring energy about her, a palpable warmth that radiated from her fair skin and the subtle, knowing curve of her lips. Her presence was magnetic, turning heads not just for her evident beauty, but for the confident aura that suggested a spirit as compelling as her appearance. At twenty, Amaya carried herself with a poise that hinted at a keen awareness of her own allure, her sharp green eyes missing little, reflecting both intelligence and a spark of youthful vivacity. [CONTEXT_GENERATION_ERROR: Failed to generate single context prompt: Gemini API returned None for context. Details: Candidate 1: FinishReason: FinishReason.MAX_TOKENS No text content in candidate parts.]",
+                    "error_details": "Failed to generate single context prompt: Gemini API returned None for context. Details: Candidate 1: FinishReason: FinishReason.MAX_TOKENS No text content in candidate parts."
+                }
+            ]
+        },
+        {
+            "id": "0ba93356",
+            "type": "individually_specified_scenes",
+            "timestamp": "2025-06-09T23:35:16.709094",
+            "variations": [
+                {
+                    "variation_index": 0,
+                    "user_inputs": {
+                        "background": "beach",
+                        "clothing": "swim wear",
+                        "pose": "running",
+                        "view": "closeup"
+                    },
+                    "context_prompt": "[CONTEXT_GENERATION_ERROR: Failed to generate single context prompt: Gemini API returned None for context. Details: Candidate 1: FinishReason: FinishReason.MAX_TOKENS No text content in candidate parts.]",
+                    "final_prompt_original": "Amaya, at twenty, possessed a beauty that was both striking and undeniably captivating. A cascade of straight, jet-black hair, long and silken, framed a face of exquisite fairness, a canvas for features that commanded attention. Her eyes were her most arresting attribute: sharp, intelligent, and a startling, luminous green that seemed to hold an inner fire, a stark and beautiful contrast against her Desi heritage. This combination of fair skin and piercing green eyes lent her an almost ethereal quality, setting her apart.  She moved with an inherent grace that accentuated her curvy silhouette, each line and contour speaking of a confident, vibrant femininity. There was an alluring energy about her, a palpable warmth that radiated from her fair skin and the subtle, knowing curve of her lips. Her presence was magnetic, turning heads not just for her evident beauty, but for the confident aura that suggested a spirit as compelling as her appearance. At twenty, Amaya carried herself with a poise that hinted at a keen awareness of her own allure, her sharp green eyes missing little, reflecting both intelligence and a spark of youthful vivacity. [CONTEXT_GENERATION_ERROR: Failed to generate single context prompt: Gemini API returned None for context. Details: Candidate 1: FinishReason: FinishReason.MAX_TOKENS No text content in candidate parts.]",
+                    "final_prompt_current": "Amaya, at twenty, possessed a beauty that was both striking and undeniably captivating. A cascade of straight, jet-black hair, long and silken, framed a face of exquisite fairness, a canvas for features that commanded attention. Her eyes were her most arresting attribute: sharp, intelligent, and a startling, luminous green that seemed to hold an inner fire, a stark and beautiful contrast against her Desi heritage. This combination of fair skin and piercing green eyes lent her an almost ethereal quality, setting her apart.  She moved with an inherent grace that accentuated her curvy silhouette, each line and contour speaking of a confident, vibrant femininity. There was an alluring energy about her, a palpable warmth that radiated from her fair skin and the subtle, knowing curve of her lips. Her presence was magnetic, turning heads not just for her evident beauty, but for the confident aura that suggested a spirit as compelling as her appearance. At twenty, Amaya carried herself with a poise that hinted at a keen awareness of her own allure, her sharp green eyes missing little, reflecting both intelligence and a spark of youthful vivacity. [CONTEXT_GENERATION_ERROR: Failed to generate single context prompt: Gemini API returned None for context. Details: Candidate 1: FinishReason: FinishReason.MAX_TOKENS No text content in candidate parts.]",
+                    "error_details": "Failed to generate single context prompt: Gemini API returned None for context. Details: Candidate 1: FinishReason: FinishReason.MAX_TOKENS No text content in candidate parts."
+                }
+            ]
+        },
+        {
+            "id": "dda4b5bb",
+            "type": "individually_specified_scenes",
+            "timestamp": "2025-06-09T23:35:43.010152",
+            "variations": [
+                {
+                    "variation_index": 0,
+                    "user_inputs": {
+                        "background": "beach",
+                        "clothing": "swim wear",
+                        "pose": "running",
+                        "view": "closeup"
+                    },
+                    "context_prompt": "Golden sand stretches across the scene. Bare feet pound the shore as someone sprints along the water's edge. The camera focuses tightly on the motion.",
+                    "final_prompt_original": "Amaya, at twenty, possessed a beauty that was both striking and undeniably captivating. A cascade of straight, jet-black hair, long and silken, framed a face of exquisite fairness, a canvas for features that commanded attention. Her eyes were her most arresting attribute: sharp, intelligent, and a startling, luminous green that seemed to hold an inner fire, a stark and beautiful contrast against her Desi heritage. This combination of fair skin and piercing green eyes lent her an almost ethereal quality, setting her apart.  She moved with an inherent grace that accentuated her curvy silhouette, each line and contour speaking of a confident, vibrant femininity. There was an alluring energy about her, a palpable warmth that radiated from her fair skin and the subtle, knowing curve of her lips. Her presence was magnetic, turning heads not just for her evident beauty, but for the confident aura that suggested a spirit as compelling as her appearance. At twenty, Amaya carried herself with a poise that hinted at a keen awareness of her own allure, her sharp green eyes missing little, reflecting both intelligence and a spark of youthful vivacity. Golden sand stretches across the scene. Bare feet pound the shore as someone sprints along the water's edge. The camera focuses tightly on the motion.",
+                    "final_prompt_current": "Amaya, at twenty, possessed a beauty that was both striking and undeniably captivating. A cascade of straight, jet-black hair, long and silken, framed a face of exquisite fairness, a canvas for features that commanded attention. Her eyes were her most arresting attribute: sharp, intelligent, and a startling, luminous green that seemed to hold an inner fire, a stark and beautiful contrast against her Desi heritage. This combination of fair skin and piercing green eyes lent her an almost ethereal quality, setting her apart.  She moved with an inherent grace that accentuated her curvy silhouette, each line and contour speaking of a confident, vibrant femininity. There was an alluring energy about her, a palpable warmth that radiated from her fair skin and the subtle, knowing curve of her lips. Her presence was magnetic, turning heads not just for her evident beauty, but for the confident aura that suggested a spirit as compelling as her appearance. At twenty, Amaya carried herself with a poise that hinted at a keen awareness of her own allure, her sharp green eyes missing little, reflecting both intelligence and a spark of youthful vivacity. Golden sand stretches across the scene. Bare feet pound the shore as someone sprints along the water's edge. The camera focuses tightly on the motion."
+                }
+            ]
+        }
+    ]
+}

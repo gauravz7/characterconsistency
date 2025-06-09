@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# VS Code
+.vscode/
+
+# Temporary files
+temp_generated_images/
+test_imagegen_output/
+test_simg_output/
+
+# Environment
+.env
+*.env
+env/
+venv/
+ENV/
+VENV/
