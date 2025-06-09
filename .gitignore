@@ -12,7 +12,8 @@ test_imagegen_output/
 test_simg_output/
 
 # User data / Generated content
-characters/character_*.json
+# Ignore all content within the characters directory
+characters/*
 app_generated_images/
 
 # Environment
