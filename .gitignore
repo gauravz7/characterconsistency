@@ -11,6 +11,9 @@ temp_generated_images/
 test_imagegen_output/
 test_simg_output/
 
+# User data / Generated content
+characters/character_*.json
+
 # Environment
 .env
 *.env
