@@ -1,0 +1,90 @@
+# Configuration file for Google Cloud Generative AI Vision Services
+# Based on Google Cloud Vertex AI Vision APIs and Veo models
+
+# Default project configuration for Image/Vision services
+project:
+  default_project_id: "vital-octagon-19612"
+  default_location: "us-central1"
+  default_gcs_bucket: "gs://media-gen-repo"
+  
+# Veo-specific configuration for video generation
+veo:
+  default_project_id: "veo-testing"
+  default_location: "us-central1"
+  default_gcs_bucket: "gs://fk-test-veo"
+
+# Model configurations
+models:
+  # Image Generation Models
+  image_generation:
+    imagen3: "imagen-3.0-generate-002"
+    imagen4: "imagen-4.0-generate-preview-05-20"
+    default_model: "imagen-3.0-generate-002"
+  
+  # Image Segmentation Models
+  image_segmentation:
+    default_model: "image-segmentation-001"
+  
+  # Video Generation Models  
+  video_generation:
+    veo2: "veo-2.0-generate-001"
+    veo3: "veo-3.0-generate-preview"
+    default_model: "veo-2.0-generate-001"
+
+# Default parameters for different services
+defaults:
+  image_generation:
+    number_of_images: 4
+    aspect_ratio: "1:1"  # Options: 1:1, 9:16, 16:9, 4:3, 3:4
+    safety_filter_level: "block_some"  # Options: block_most, block_some, block_few
+    person_generation: "allow_adult"  # Options: allow_adult, disallow
+    include_rai_reason: false
+    add_watermark: true
+    
+  image_editing:
+    edit_mode: "inpainting-insert"  # Options: inpainting-insert, inpainting-remove, outpainting, product-image
+    mask_mode: "foreground"  # Options: foreground, background, semantic
+    
+  image_segmentation:
+    dilation_config:
+      dilation_kernel_size: 5
+      dilation_iterations: 1
+    
+  video_generation:
+    aspect_ratio: "16:9"  # Options: 16:9, 9:16
+    duration_seconds: 5  # Options: 5-8 seconds
+    sample_count: 4
+    person_safety_setting: "allow_adult"  # Options: allow_adult, disallow
+    enhance_prompt: true
+
+# Storage configuration
+storage:
+  output_formats:
+    image: ["png", "jpeg", "webp"]
+    video: ["mp4", "mov"]
+  compression_quality: 85  # JPEG compression quality (0-100)
+  
+# API endpoint configurations
+endpoints:
+  vertex_ai_base: "https://{location}-aiplatform.googleapis.com/v1"
+  image_generation: "/projects/{project_id}/locations/{location}/publishers/google/models/{model_id}:predict"
+  video_generation: "/projects/{project_id}/locations/{location}/publishers/google/models/{model_id}:predictLongRunning"
+  image_segmentation: "/projects/{project_id}/locations/{location}/publishers/google/models/{model_id}:predict"
+
+# Safety and compliance settings
+safety:
+  enable_content_filtering: true
+  enable_safety_attributes: false
+  blocked_content_handling: "return_error"  # Options: return_error, return_partial
+  
+# Rate limiting and retry configuration
+rate_limiting:
+  max_requests_per_minute: 60
+  retry_attempts: 3
+  retry_backoff_seconds: 2
+
+# Logging configuration
+logging:
+  level: "INFO"  # Options: DEBUG, INFO, WARNING, ERROR
+  enable_request_logging: true
+  enable_response_logging: false  # Set to false to avoid logging large image/video data

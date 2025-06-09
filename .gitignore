@@ -13,6 +13,7 @@ test_simg_output/
 
 # User data / Generated content
 characters/character_*.json
+app_generated_images/
 
 # Environment
 .env
