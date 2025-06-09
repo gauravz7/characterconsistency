@@ -9,23 +9,47 @@ import zipfile
 import base64 # For creating unique filenames if needed, or just use indices
 from PIL import Image
 import os
+import config_loader # Import the new config loader
+from typing import Optional # Add Optional for type hinting
 
 # --- Configuration ---
-PROJECT_ID = "vital-octagon-19612" 
-LOCATION = "us-central1"
+# PROJECT_ID and LOCATION will now be loaded from config_loader
+# PROJECT_ID = "vital-octagon-19612" 
+# LOCATION = "us-central1"
 
 # Ensure the imagegen client is initialized with the correct project ID
 # This happens within imagegen.py now, but we ensure it's called.
-imagegen.PROJECT_ID = PROJECT_ID
-imagegen.LOCATION = LOCATION
+# imagegen.PROJECT_ID = PROJECT_ID # Old, direct assignment
+# imagegen.LOCATION = LOCATION # Old, direct assignment
 
 
 # --- Helper Functions ---
+
+# These will now be populated from sidebar or config
+SESSION_PROJECT_ID: Optional[str] = None
+SESSION_LOCATION: Optional[str] = None
+SESSION_GCS_BUCKET: Optional[str] = None
+
 @st.cache_resource # Cache the CharacterCreator instance
-def get_character_creator():
+def get_character_creator(project_id_override: Optional[str] = None, location_override: Optional[str] = None):
     """Initializes and returns the CharacterCreator instance."""
+    global SESSION_PROJECT_ID, SESSION_LOCATION
+    
+    proj_id = project_id_override or SESSION_PROJECT_ID or config_loader.get_project_id()
+    loc = location_override or SESSION_LOCATION or config_loader.get_location()
+
+    if not proj_id: # Check after all fallbacks
+        st.sidebar.error("Project ID is not set. Please set it in the sidebar or config.yaml.")
+        st.error("Project ID is missing. Character Creator cannot be initialized.")
+        return None
+    if not loc:
+        st.sidebar.error("Location is not set. Please set it in the sidebar or config.yaml.")
+        st.error("Location is missing. Character Creator cannot be initialized.")
+        return None
+    
     try:
-        creator_instance = CharacterCreator(project_id=PROJECT_ID, location=LOCATION)
+        # Use resolved project_id and location
+        creator_instance = CharacterCreator(project_id=proj_id, location=loc)
         Path("./characters").mkdir(exist_ok=True)
         return creator_instance
     except Exception as e:
@@ -34,13 +58,39 @@ def get_character_creator():
         return None
 
 @st.cache_resource
-def get_image_generator_client():
+def get_image_generator_client(project_id_override: Optional[str] = None, location_override: Optional[str] = None, gcs_bucket_override: Optional[str] = None):
     """Initializes and returns the ImageGenerationClient for image generation."""
+    global SESSION_PROJECT_ID, SESSION_LOCATION, SESSION_GCS_BUCKET
+
+    proj_id = project_id_override or SESSION_PROJECT_ID or config_loader.get_project_id()
+    loc = location_override or SESSION_LOCATION or config_loader.get_location()
+    # GCS bucket for ImageGenerationClient is primarily handled by its BaseVisionClient from config,
+    # but we might want to pass it if UI needs to override for specific operations.
+    # For now, ImageGenerationClient will use its internal config for GCS bucket.
+    # We store the UI value in SESSION_GCS_BUCKET for potential later use.
+    SESSION_GCS_BUCKET = gcs_bucket_override or SESSION_GCS_BUCKET or config_loader.get_gcs_bucket()
+
+
+    if not proj_id:
+        st.sidebar.error("Project ID is not set. Please set it in the sidebar or config.yaml.")
+        st.error("Project ID is missing. Image Generator Client cannot be initialized.")
+        return None
+    if not loc:
+        st.sidebar.error("Location is not set. Please set it in the sidebar or config.yaml.")
+        st.error("Location is missing. Image Generator Client cannot be initialized.")
+        return None
+        
     try:
-        client = ImageGenerationClient(project_id=PROJECT_ID, location=LOCATION)
-        if not client:
-            st.error("Failed to initialize Image Generator Client. Check console for details.")
-            return None
+        # Pass resolved project_id and location
+        client = ImageGenerationClient(project_id=proj_id, location=loc)
+        # If client.gcs_bucket needs to be updated from UI:
+        if SESSION_GCS_BUCKET and client.gcs_bucket != SESSION_GCS_BUCKET:
+            # This assumes ImageGenerationClient or its base has a way to update gcs_bucket
+            # or that operations will take it as a parameter.
+            # For now, we'll just log if there's a discrepancy.
+            # client.gcs_bucket = SESSION_GCS_BUCKET # If direct assignment is possible/intended
+            st.sidebar.info(f"Image Client GCS Bucket (from config): {client.gcs_bucket}. UI GCS Bucket: {SESSION_GCS_BUCKET}")
+
         Path("./app_generated_images").mkdir(parents=True, exist_ok=True) # For temporary storage
         return client
     except Exception as e:
@@ -79,9 +129,41 @@ def create_zip_download(images_data, filename_prefix="generated_images"):
 # --- Streamlit App UI ---
 st.set_page_config(layout="wide") 
 
-# --- Initialize Services ---
-creator = get_character_creator()
-image_client = get_image_generator_client()
+# --- Sidebar for Configuration ---
+st.sidebar.header("Global Configuration")
+
+# Get initial values from config_loader to pre-fill text_input
+default_project_id = config_loader.get_project_id() or ""
+default_location = config_loader.get_location() or ""
+default_gcs_bucket = config_loader.get_gcs_bucket() or ""
+
+ui_project_id = st.sidebar.text_input("Google Cloud Project ID", value=st.session_state.get("ui_project_id", default_project_id), help="Overrides config.yaml if set.")
+ui_location = st.sidebar.text_input("Google Cloud Location", value=st.session_state.get("ui_location", default_location), help="Overrides config.yaml if set.")
+ui_gcs_bucket = st.sidebar.text_input("GCS Bucket Path (e.g., gs://your-bucket)", value=st.session_state.get("ui_gcs_bucket", default_gcs_bucket), help="Overrides config.yaml if set. Used for GCS uploads.")
+
+# Update session state and global vars if UI values change
+# This is a simple way; a more robust app might use callbacks or a dedicated config object
+if ui_project_id != st.session_state.get("ui_project_id", default_project_id):
+    st.session_state.ui_project_id = ui_project_id
+if ui_location != st.session_state.get("ui_location", default_location):
+    st.session_state.ui_location = ui_location
+if ui_gcs_bucket != st.session_state.get("ui_gcs_bucket", default_gcs_bucket):
+    st.session_state.ui_gcs_bucket = ui_gcs_bucket
+
+# Populate global vars for get_character_creator and get_image_generator_client
+SESSION_PROJECT_ID = st.session_state.get("ui_project_id")
+SESSION_LOCATION = st.session_state.get("ui_location")
+SESSION_GCS_BUCKET = st.session_state.get("ui_gcs_bucket")
+
+
+# --- Initialize Services (now uses sidebar values or config fallback) ---
+# Pass the UI overrides to the getter functions.
+# @st.cache_resource functions will use these on their first run or if inputs change.
+# Note: For @st.cache_resource to re-run based on these, they must be arguments to the cached function.
+# So, we will call them with the current UI values.
+creator = get_character_creator(project_id_override=SESSION_PROJECT_ID, location_override=SESSION_LOCATION)
+image_client = get_image_generator_client(project_id_override=SESSION_PROJECT_ID, location_override=SESSION_LOCATION, gcs_bucket_override=SESSION_GCS_BUCKET)
+
 
 st.title("Creative Suite: Character & Image Generation")
 
@@ -517,7 +599,25 @@ st.sidebar.info(
     Generated images are saved in './app_generated_images'.
     """
 )
-st.sidebar.markdown(f"Using Project ID: `{PROJECT_ID}`")
+# Display effective Project ID, Location, and GCS Bucket
+effective_project_id = SESSION_PROJECT_ID or config_loader.get_project_id()
+effective_location = SESSION_LOCATION or config_loader.get_location()
+effective_gcs_bucket = SESSION_GCS_BUCKET or config_loader.get_gcs_bucket()
+
+if effective_project_id:
+    st.sidebar.markdown(f"Effective Project ID: `{effective_project_id}`")
+else:
+    st.sidebar.error("Project ID is not configured (UI or config.yaml).")
+if effective_location:
+    st.sidebar.markdown(f"Effective Location: `{effective_location}`")
+else:
+    st.sidebar.error("Location is not configured (UI or config.yaml).")
+if effective_gcs_bucket:
+    st.sidebar.markdown(f"Effective GCS Bucket: `{effective_gcs_bucket}`")
+else:
+    st.sidebar.warning("GCS Bucket not configured (UI or config.yaml). Uploads to GCS might fail.")
+
+
 if not creator:
     st.sidebar.warning("Character Creator features might be limited.")
 if not image_client:

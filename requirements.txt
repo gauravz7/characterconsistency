@@ -1,0 +1,7 @@
+streamlit
+google-cloud-aiplatform
+google-generativeai
+Pillow
+PyYAML
+google-cloud-storage
+google-auth
