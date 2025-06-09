@@ -29,8 +29,8 @@ class CharacterCreator:
             raise Exception(f"Failed to initialize Gemini client (genai.Client with vertexai=True): {e}")
         
         self.image_client = None # Image generation ignored
-        self.characters_dir = Path("./characters")
-        self.characters_dir.mkdir(exist_ok=True)
+        self.base_characters_dir = Path("./characters") # Base directory
+        self.base_characters_dir.mkdir(exist_ok=True)
         self.characters: Dict[str, Dict[str, Any]] = {} # In-memory cache
 
     def _save_character(self, character_data: Dict[str, Any]):
@@ -38,23 +38,32 @@ class CharacterCreator:
         if not char_id:
             print("Error: Character data is missing an ID. Cannot save.")
             return
-        file_path = self.characters_dir / f"character_{char_id}.json"
+        
+        character_specific_dir = self.base_characters_dir / char_id
+        character_specific_dir.mkdir(parents=True, exist_ok=True)
+        
+        file_path = character_specific_dir / "character_data.json"
         try:
             with open(file_path, 'w') as f:
                 json.dump(character_data, f, indent=4)
+            print(f"Character {char_id} saved to {file_path}")
         except Exception as e:
             print(f"Error saving character {char_id} to {file_path}: {e}")
 
     def _load_character(self, character_id: str) -> Optional[Dict[str, Any]]:
-        if character_id in self.characters:
+        if character_id in self.characters: # Check cache first
             return self.characters[character_id]
-        file_path = self.characters_dir / f"character_{character_id}.json"
+        
+        character_specific_dir = self.base_characters_dir / character_id
+        file_path = character_specific_dir / "character_data.json"
+        
         if not file_path.exists():
+            print(f"Character data file not found for ID {character_id} at {file_path}")
             return None
         try:
             with open(file_path, 'r') as f:
                 character_data = json.load(f)
-            self.characters[character_id] = character_data
+            self.characters[character_id] = character_data # Cache it
             return character_data
         except Exception as e:
             print(f"Error loading character {character_id} from {file_path}: {e}")
@@ -212,15 +221,40 @@ Output: 1-3 sentences ONLY. Under 80 words. Describe ONLY scene elements. NO cha
             prompt_set_variations.append(variation_data)
 
         character_data.setdefault('generated_prompt_sets', [])
-        prompt_set_id = str(uuid.uuid4())[:8]
+        current_datetime_stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        prompt_set_id = f"prompts_{current_datetime_stamp}_{str(uuid.uuid4())[:4]}"
+
         new_prompt_set = {
             "id": prompt_set_id,
             "type": "individually_specified_scenes",
-            "timestamp": datetime.now().isoformat(),
-            "variations": prompt_set_variations 
+            "timestamp": datetime.now().isoformat(), # Redundant with stamp in ID, but okay
+            "variations": prompt_set_variations,
+            # "prompts_file_path": "" # This will be set after saving
         }
+
+        # Save prompts to a file within the character's generation folder
+        char_id = character_data.get("id")
+        if char_id:
+            generations_dir = self.base_characters_dir / char_id / "generations"
+            current_generation_session_dir = generations_dir / current_datetime_stamp
+            current_generation_session_dir.mkdir(parents=True, exist_ok=True)
+            
+            prompts_file_path = current_generation_session_dir / "prompts.txt"
+            try:
+                with open(prompts_file_path, 'w') as pf:
+                    for p_idx, p_text in enumerate(final_prompts_for_return):
+                        pf.write(f"--- Prompt {p_idx + 1} ---\n")
+                        pf.write(p_text + "\n\n")
+                new_prompt_set["prompts_file_path"] = str(prompts_file_path.relative_to(self.base_characters_dir))
+                print(f"Prompts for character {char_id} saved to {prompts_file_path}")
+            except Exception as e:
+                print(f"Error saving prompts to file {prompts_file_path}: {e}")
+                new_prompt_set["prompts_file_error"] = str(e)
+        else:
+            print("Warning: Character ID not found, cannot save prompts to character-specific folder.")
+
         character_data['generated_prompt_sets'].append(new_prompt_set)
-        self._save_character(character_data)
+        self._save_character(character_data) # Save character data which now includes prompt set metadata
         return final_prompts_for_return
 
     def create_character_description(
@@ -318,18 +352,33 @@ Example Output2: Generate a, photorealistic portrait of Eva, a captivating 20-ye
         return char_data.get("images", []) if char_data else []
     
     def get_all_characters(self) -> Dict[str, Dict[str, Any]]:
-        for char_file in self.characters_dir.glob("character_*.json"):
-            try:
-                char_id_from_filename = char_file.stem.replace("character_", "")
-                if char_id_from_filename not in self.characters: 
-                    with open(char_file, 'r') as f:
-                        char_data = json.load(f)
-                        if char_data.get("id") == char_id_from_filename: 
-                            self.characters[char_data["id"]] = char_data
+        # Ensure the base directory exists
+        self.base_characters_dir.mkdir(exist_ok=True)
+        
+        loaded_characters = {}
+        for char_id_dir in self.base_characters_dir.iterdir():
+            if char_id_dir.is_dir(): # Each character is in its own directory named by char_id
+                char_id = char_id_dir.name
+                if char_id in self.characters: # Prefer cached version if available
+                    loaded_characters[char_id] = self.characters[char_id]
+                    continue
+
+                char_data_file = char_id_dir / "character_data.json"
+                if char_data_file.exists():
+                    try:
+                        with open(char_data_file, 'r') as f:
+                            char_data = json.load(f)
+                        if char_data.get("id") == char_id:
+                            self.characters[char_id] = char_data # Cache it
+                            loaded_characters[char_id] = char_data
                         else:
-                            print(f"Warning: Mismatch ID in filename {char_file.name} and content.")
-            except Exception as e: 
-                print(f"Error loading character file {char_file.name}: {e}")
+                            print(f"Warning: Mismatch ID in directory name {char_id} and content of {char_data_file}.")
+                    except Exception as e:
+                        print(f"Error loading character file {char_data_file}: {e}")
+        # Update self.characters to reflect only what's currently on disk + newly created in session
+        # This simple approach might clear characters from cache if their folder was deleted.
+        # A more robust cache would handle this differently.
+        self.characters = loaded_characters 
         return self.characters
     
     def update_character_description(self, character_id: str, new_description: str ) -> Dict[str, Any]:

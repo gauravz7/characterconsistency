@@ -1,0 +1,9 @@
+--- Batch Image Prompts (20250610_012011) ---
+Common Aspect Ratio: 1:1
+Common Safety Filter: block_few
+Common Person Generation: allow_adult
+Images Per Prompt: 1
+Base Seed: 38
+
+Prompt 1: Anaya, a 38-year-old Pakistani woman, carries herself with a gentle grace that softens her otherwise sharp features. Her black eyes, deep and knowing, hold a sweetness that draws people in, hinting at a warm and empathetic nature. Her dark brown hair, thick and lustrous, cascades around her face, framing it with a natural elegance. Anaya possesses a curvy hourglass figure, which she carries with confidence. There's a sense of understated style in her appearance, a quiet sophistication that speaks of a woman who is both grounded and worldly. Her presence is calming and reassuring, like a comforting embrace. The beach stretches out under a wide angle view. Someone in swimwear is running along the water's edge. Sand and surf are visible in the background.
+Prompt 2: Anaya, a 38-year-old Pakistani woman, carries herself with a gentle grace that softens her otherwise sharp features. Her black eyes, deep and knowing, hold a sweetness that draws people in, hinting at a warm and empathetic nature. Her dark brown hair, thick and lustrous, cascades around her face, framing it with a natural elegance. Anaya possesses a curvy hourglass figure, which she carries with confidence. There's a sense of understated style in her appearance, a quiet sophistication that speaks of a woman who is both grounded and worldly. Her presence is calming and reassuring, like a comforting embrace. The water park is bustling with activity. Someone in water clothes is captured mid-slide, a splash of water around them. The shot focuses on the action of the descent.

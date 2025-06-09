@@ -11,6 +11,7 @@ from PIL import Image
 import os
 import config_loader # Import the new config loader
 from typing import Optional # Add Optional for type hinting
+from datetime import datetime # Add datetime import
 
 # --- Configuration ---
 # PROJECT_ID and LOCATION will now be loaded from config_loader
@@ -284,7 +285,24 @@ if image_client and len(tabs) > 2:
     with tabs[2]:
         st.header("3. Generate Images")
         st.markdown("Generate images from text prompts using AI image generation.")
+
+        # Character selection for associating images
+        if 'character_options' not in st.session_state and creator:
+            st.session_state.character_options = load_characters(creator)
         
+        char_options_for_tab3 = {"None (save to default app_generated_images folder)": None}
+        if 'character_options' in st.session_state:
+            char_options_for_tab3.update(st.session_state.character_options)
+
+        selected_char_display_name_tab3 = st.selectbox(
+            "Associate with Character (Optional)",
+            options=list(char_options_for_tab3.keys()),
+            index=0, # Default to "None"
+            key="char_select_tab3",
+            help="If a character is selected, images and prompts will be saved in their character folder."
+        )
+        selected_char_id_tab3 = char_options_for_tab3[selected_char_display_name_tab3]
+
         # Mode selection
         generation_mode = st.radio(
             "Generation Mode",
@@ -356,12 +374,35 @@ if image_client and len(tabs) > 2:
             if submit_single and single_prompt.strip():
                 with st.spinner("Generating image..."):
                     try:
+                        output_directory_final = "./app_generated_images/single" # Default
+                        current_dt_stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+                        if selected_char_id_tab3:
+                            char_generations_dir = Path("./characters") / selected_char_id_tab3 / "generations"
+                            output_directory_final = char_generations_dir / current_dt_stamp
+                            output_directory_final.mkdir(parents=True, exist_ok=True)
+                            
+                            # Save the prompt used in this session
+                            try:
+                                with open(output_directory_final / "s_prompt.txt", 'w') as f:
+                                    f.write(f"--- Single Image Prompt ({current_dt_stamp}) ---\n")
+                                    f.write(f"Prompt: {single_prompt}\n")
+                                    if negative_prompt.strip():
+                                        f.write(f"Negative Prompt: {negative_prompt.strip()}\n")
+                                    f.write(f"Aspect Ratio: {aspect_ratio}\n")
+                                    f.write(f"Safety Filter: {safety_filter}\n")
+                                    f.write(f"Person Generation: {person_generation}\n")
+                                    f.write(f"Seed: {seed_value if seed_value > 0 else 'Random'}\n")
+                                st.info(f"Prompt for this session saved to {output_directory_final / 's_prompt.txt'}")
+                            except Exception as e_prompt_save:
+                                st.warning(f"Could not save prompt file: {e_prompt_save}")
+                        
                         generation_params = {
                             "prompt": single_prompt,
                             "aspect_ratio": aspect_ratio,
                             "safety_filter_level": safety_filter,
                             "person_generation": person_generation,
-                            "output_dir": "./app_generated_images"
+                            "output_dir": str(output_directory_final) # Pass constructed path
                         }
                         
                         if negative_prompt.strip():
@@ -504,13 +545,41 @@ if image_client and len(tabs) > 2:
                         status_text.text(f"Processing prompt {i+1}/{len(prompts_list)}: {prompt[:50]}...")
                         
                         try:
+                            output_directory_batch_base = "./app_generated_images/batch" # Default
+                            current_dt_stamp_batch = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+                            if selected_char_id_tab3:
+                                char_generations_dir_batch = Path("./characters") / selected_char_id_tab3 / "generations"
+                                # For batch, each prompt might not need its own sub-sub-folder if ImageGenerationClient handles it.
+                                # Let's make one session folder for the whole batch under the character.
+                                output_directory_batch_base = char_generations_dir_batch / current_dt_stamp_batch
+                                output_directory_batch_base.mkdir(parents=True, exist_ok=True)
+
+                                # Save all batch prompts to one file for this session
+                                try:
+                                    with open(output_directory_batch_base / "b_prompts.txt", 'w') as f:
+                                        f.write(f"--- Batch Image Prompts ({current_dt_stamp_batch}) ---\n")
+                                        if batch_negative_prompt.strip():
+                                            f.write(f"Common Negative Prompt: {batch_negative_prompt.strip()}\n")
+                                        f.write(f"Common Aspect Ratio: {batch_aspect_ratio}\n")
+                                        f.write(f"Common Safety Filter: {batch_safety_filter}\n")
+                                        f.write(f"Common Person Generation: {batch_person_generation}\n")
+                                        f.write(f"Images Per Prompt: {images_per_prompt}\n")
+                                        f.write(f"Base Seed: {batch_seed_base if batch_seed_base > 0 else 'Random, increments'}\n\n")
+                                        for p_idx, p_text in enumerate(prompts_list):
+                                            f.write(f"Prompt {p_idx+1}: {p_text}\n")
+                                    st.info(f"Batch prompts for this session saved to {output_directory_batch_base / 'b_prompts.txt'}")
+                                except Exception as e_prompt_save:
+                                    st.warning(f"Could not save batch prompts file: {e_prompt_save}")
+
                             generation_params = {
-                                "prompt": prompt,
+                                "prompt": prompt, # This is per-iteration
                                 "number_of_images": images_per_prompt,
                                 "aspect_ratio": batch_aspect_ratio,
                                 "safety_filter_level": batch_safety_filter,
                                 "person_generation": batch_person_generation,
-                                "output_dir": "./app_generated_images"
+                                "output_dir": str(output_directory_batch_base) # Pass constructed base path
+                                # ImageGenerationClient's batch_generate_images might create subfolders per prompt
                             }
                             
                             if batch_negative_prompt.strip():
